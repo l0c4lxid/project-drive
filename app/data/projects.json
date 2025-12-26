@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ayam-geprek-profile",
+    "title": "Ayam Geprek Profile",
+    "shortDescription": "A vibrant brand profile site highlighting menu highlights and signature flavors.",
+    "thumbnailImage": "/thumbnails/ayam-geprek-profile.png",
+    "githubUrl": "https://github.com/l0c4lxid/ayam-geprek-profile",
+    "demoUrl": "https://ayam-geprek-profile.vercel.app/",
+    "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
+    "type": "UI/UX",
+    "year": 2025
+  },
+  {
+    "id": "tk-pkk-siwi-lestari",
+    "title": "TK PKK Siwi Lestari",
+    "shortDescription": "A calm, parent-friendly school profile with clear sections for programs and enrollment.",
+    "thumbnailImage": "/thumbnails/tk-pkk-siwi-lestari.png",
+    "githubUrl": "https://github.com/l0c4lxid/tk-pkk-siwi-lestari",
+    "demoUrl": "https://tk-pkk-siwi-lestari.vercel.app/",
+    "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
+    "type": "UI/UX",
+    "year": 2025
+  },
+  {
+    "id": "awul-awul-market",
+    "title": "Awul-Awul Market",
+    "shortDescription": "A marketplace landing UI focused on product discovery and promotional highlights.",
+    "thumbnailImage": "/thumbnails/awul-awul-market.png",
+    "githubUrl": "https://github.com/l0c4lxid/awul-awul-market",
+    "demoUrl": "https://awul-awul-market.vercel.app/",
+    "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
+    "type": "UI/UX",
+    "year": 2025
+  },
+  {
+    "id": "desain-interior-template",
+    "title": "Desain Interior Template",
+    "shortDescription": "A clean interior design showcase with emphasis on visuals, layout, and services.",
+    "thumbnailImage": "/thumbnails/desain-interior-template.png",
+    "githubUrl": "https://github.com/l0c4lxid/DesainInteriorTemplate",
+    "demoUrl": "https://desain-interior-template.vercel.app/",
+    "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
+    "type": "UI/UX",
+    "year": 2025
+  }
+]
