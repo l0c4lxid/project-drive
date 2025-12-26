@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import type { ProjectType } from "../data/projects";
 
 const views = [
@@ -16,6 +20,7 @@ type TopBarProps = {
   filter: "All" | ProjectType;
   onFilterChange: (filter: "All" | ProjectType) => void;
   filters: Array<"All" | ProjectType>;
+  onMenuClick: () => void;
 };
 
 export default function TopBar({
@@ -27,15 +32,35 @@ export default function TopBar({
   filter,
   onFilterChange,
   filters,
+  onMenuClick,
 }: TopBarProps) {
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
+
   return (
-    <div className="sticky top-0 z-30 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur">
+    <div className="sticky top-0 z-30 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/90">
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-3 px-4 py-3 lg:px-8">
         <div className="flex flex-1 items-center gap-2">
-          <div className="h-9 w-9 rounded-lg border border-slate-200 bg-white p-2">
-            <div className="h-full w-full rounded-md bg-gradient-to-br from-blue-500 via-blue-400 to-sky-300" />
+          <button
+            type="button"
+            onClick={onMenuClick}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-[#1A73E8] hover:text-[#1A73E8] lg:hidden dark:border-slate-700 dark:text-slate-300"
+            aria-label="Open menu"
+          >
+            <MenuIcon />
+          </button>
+          <div className="h-9 w-9 rounded-lg border border-slate-200 bg-white p-2 dark:border-slate-700 dark:bg-slate-900">
+            <div className="h-full w-full rounded-md bg-gradient-to-br from-[#1A73E8] via-sky-500 to-sky-300" />
           </div>
-          <span className="text-lg font-semibold text-slate-900">{title}</span>
+          <span className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+            {title}
+          </span>
         </div>
 
         <div className="order-3 w-full md:order-none md:w-[min(520px,50vw)]">
@@ -45,13 +70,13 @@ export default function TopBar({
               value={search}
               onChange={(event) => onSearchChange(event.target.value)}
               placeholder="Search projects"
-              className="h-10 w-full rounded-full border border-slate-200 bg-white pl-9 pr-4 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+              className="h-10 w-full rounded-full border border-slate-200 bg-white pl-9 pr-4 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm focus:border-[#1A73E8] focus:outline-none focus:ring-2 focus:ring-[#1A73E8]/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500"
             />
           </div>
         </div>
 
         <div className="flex flex-1 flex-wrap items-center justify-end gap-2">
-          <div className="flex items-center rounded-full border border-slate-200 bg-white p-1">
+          <div className="flex items-center rounded-full border border-slate-200 bg-white p-1 dark:border-slate-700 dark:bg-slate-900">
             {views.map((item) => (
               <button
                 key={item.id}
@@ -60,8 +85,8 @@ export default function TopBar({
                 onClick={() => onViewChange(item.id)}
                 className={`flex h-8 items-center gap-1 rounded-full px-3 text-xs font-medium transition-colors ${
                   view === item.id
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "bg-[#1A73E8]/10 text-[#1A73E8]"
+                    : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
                 }`}
               >
                 {item.id === "grid" ? <GridIcon /> : <ListIcon />}
@@ -70,7 +95,7 @@ export default function TopBar({
             ))}
           </div>
 
-          <div className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-slate-200 bg-white p-1">
+          <div className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-slate-200 bg-white p-1 dark:border-slate-700 dark:bg-slate-900">
             {filters.map((item) => (
               <button
                 key={item}
@@ -79,14 +104,23 @@ export default function TopBar({
                 onClick={() => onFilterChange(item)}
                 className={`whitespace-nowrap rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                   filter === item
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "bg-[#1A73E8]/10 text-[#1A73E8]"
+                    : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
                 }`}
               >
                 {item}
               </button>
             ))}
           </div>
+
+          <button
+            type="button"
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-[#1A73E8] hover:text-[#1A73E8] dark:border-slate-700 dark:text-slate-300"
+            aria-label="Toggle theme"
+          >
+            {isDark ? <SunIcon /> : <MoonIcon />}
+          </button>
         </div>
       </div>
     </div>
@@ -149,6 +183,67 @@ function ListIcon() {
       <circle cx="4" cy="6" r="1.5" />
       <circle cx="4" cy="12" r="1.5" />
       <circle cx="4" cy="18" r="1.5" />
+    </svg>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg
+      className="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M4 6h16" />
+      <path d="M4 12h16" />
+      <path d="M4 18h16" />
+    </svg>
+  );
+}
+
+function SunIcon() {
+  return (
+    <svg
+      className="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2" />
+      <path d="M12 20v2" />
+      <path d="M4.9 4.9l1.4 1.4" />
+      <path d="M17.7 17.7l1.4 1.4" />
+      <path d="M2 12h2" />
+      <path d="M20 12h2" />
+      <path d="M4.9 19.1l1.4-1.4" />
+      <path d="M17.7 6.3l1.4-1.4" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg
+      className="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 109.8 9.8z" />
     </svg>
   );
 }

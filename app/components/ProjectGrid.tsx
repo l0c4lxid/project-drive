@@ -14,8 +14,8 @@ export default function ProjectGrid({
 }: ProjectGridProps) {
   if (projects.length === 0) {
     return (
-      <div className="rounded-lg border border-dashed border-slate-300 bg-white/70 p-10 text-center">
-        <p className="text-sm text-slate-500">
+      <div className="rounded-lg border border-dashed border-slate-300 bg-white/70 p-10 text-center dark:border-slate-700 dark:bg-slate-900/60">
+        <p className="text-sm text-slate-500 dark:text-slate-400">
           No projects match your search yet.
         </p>
       </div>
