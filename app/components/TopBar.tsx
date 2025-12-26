@@ -33,10 +33,7 @@ export default function TopBar({
   filters,
   onMenuClick,
 }: TopBarProps) {
-  const { theme, resolvedTheme, setTheme } = useTheme();
-  const isDark =
-    resolvedTheme !== undefined &&
-    (theme === "dark" || (theme === "system" && resolvedTheme === "dark"));
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <div className="sticky top-0 z-30 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/90">
@@ -111,11 +108,18 @@ export default function TopBar({
 
           <button
             type="button"
-            onClick={() => setTheme(isDark ? "light" : "dark")}
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
             className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-[#1A73E8] hover:text-[#1A73E8] dark:border-slate-700 dark:text-slate-300"
             aria-label="Toggle theme"
           >
-            {isDark ? <SunIcon /> : <MoonIcon />}
+            <span className="dark:hidden">
+              <MoonIcon />
+            </span>
+            <span className="hidden dark:inline-flex">
+              <SunIcon />
+            </span>
           </button>
         </div>
       </div>
