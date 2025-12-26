@@ -108,8 +108,15 @@ export default function ListView({
         })}
       </div>
 
-      <div className="hidden overflow-x-auto rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 md:block">
-        <table className="min-w-[760px] w-full text-sm">
+      <div className="hidden rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 md:block">
+        <table className="w-full table-fixed text-sm">
+          <colgroup>
+            <col className="w-[34%]" />
+            <col className="w-[12%]" />
+            <col className="w-[26%]" />
+            <col className="w-[8%]" />
+            <col className="w-[20%]" />
+          </colgroup>
           <thead className="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500 dark:bg-slate-800/80 dark:text-slate-400">
             <tr>
               <th className="px-4 py-3 font-medium">Name</th>
@@ -153,14 +160,14 @@ export default function ListView({
                 <td className="px-4 py-3 text-slate-600 dark:text-slate-300">
                   {project.type}
                 </td>
-                <td className="px-4 py-3 text-slate-600 dark:text-slate-300">
+                <td className="px-4 py-3 break-words text-slate-600 dark:text-slate-300">
                   {project.techStack.join(", ")}
                 </td>
                 <td className="px-4 py-3 text-slate-600 dark:text-slate-300">
                   {project.year}
                 </td>
                 <td className="px-4 py-3">
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <a
                       href={project.githubUrl}
                       target="_blank"
