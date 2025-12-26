@@ -41,7 +41,7 @@ export default function TopBar({
 
   return (
     <div className="sticky top-0 z-30 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/90">
-      <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-3 px-4 py-3 lg:px-8">
+      <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-3 px-4 py-3 md:flex-nowrap lg:px-8">
         <div className="flex flex-1 items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">
             <GitHubMarkIcon />
@@ -63,7 +63,7 @@ export default function TopBar({
           </div>
         </div>
 
-        <div className="flex flex-1 flex-wrap items-center justify-end gap-2">
+        <div className="flex flex-1 flex-wrap items-center justify-end gap-2 md:flex-nowrap">
           <div className="flex items-center rounded-full border border-slate-200 bg-white p-1 dark:border-slate-700 dark:bg-slate-900">
             {views.map((item) => (
               <button
