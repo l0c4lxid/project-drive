@@ -12,6 +12,8 @@ export default function ProjectCard({
   onSelect,
   isSelected,
 }: ProjectCardProps) {
+  const useUnoptimized = project.thumbnailImage.includes("image.thum.io");
+
   return (
     <div className="group relative">
       <button
@@ -30,6 +32,7 @@ export default function ProjectCard({
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 25vw"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            unoptimized={useUnoptimized}
           />
         </div>
         <div className="flex items-center justify-between px-3 py-2">

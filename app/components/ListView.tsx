@@ -52,6 +52,7 @@ export default function ListView({
                       fill
                       sizes="56px"
                       className="object-cover"
+                      unoptimized={project.thumbnailImage.includes("image.thum.io")}
                     />
                   </div>
                   <div className="min-w-0">

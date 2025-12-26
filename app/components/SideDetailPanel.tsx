@@ -14,6 +14,8 @@ export default function SideDetailPanel({
     return null;
   }
 
+  const useUnoptimized = project.thumbnailImage.includes("image.thum.io");
+
   return (
     <div className="fixed inset-0 z-40">
       <button
@@ -42,6 +44,7 @@ export default function SideDetailPanel({
               fill
               sizes="(max-width: 768px) 100vw, 420px"
               className="object-cover"
+              unoptimized={useUnoptimized}
             />
           </div>
 
