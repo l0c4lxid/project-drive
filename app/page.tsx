@@ -20,7 +20,10 @@ export default function Home() {
     const normalizedSearch = search.trim().toLowerCase();
 
     return projects.filter((project) => {
-      const matchesType = filter === "All" || project.type === filter;
+      const matchesType =
+        filter === "All" ||
+        project.type === filter ||
+        project.tags?.includes(filter);
       const matchesSearch =
         normalizedSearch.length === 0 ||
         project.title.toLowerCase().includes(normalizedSearch);
