@@ -43,14 +43,6 @@ export default function TopBar({
     <div className="sticky top-0 z-30 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/90">
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-3 px-4 py-3 lg:px-8">
         <div className="flex flex-1 items-center gap-2">
-          <button
-            type="button"
-            onClick={onMenuClick}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-[#1A73E8] hover:text-[#1A73E8] lg:hidden dark:border-slate-700 dark:text-slate-300"
-            aria-label="Open menu"
-          >
-            <MenuIcon />
-          </button>
           <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">
             <GitHubMarkIcon />
           </div>
@@ -108,6 +100,15 @@ export default function TopBar({
               </button>
             ))}
           </div>
+
+          <button
+            type="button"
+            onClick={onMenuClick}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-[#1A73E8] hover:text-[#1A73E8] lg:hidden dark:border-slate-700 dark:text-slate-300"
+            aria-label="Open menu"
+          >
+            <MenuIcon />
+          </button>
 
           <button
             type="button"
