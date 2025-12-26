@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Project Drive",
   description: "A Google Drive-inspired workspace for project portfolios.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

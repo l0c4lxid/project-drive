@@ -11,6 +11,7 @@ export type Project = {
   demoUrl?: string;
   techStack: string[];
   type: ProjectType;
+  tags?: string[];
   year: number;
 };
 

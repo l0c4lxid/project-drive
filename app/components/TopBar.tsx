@@ -55,8 +55,8 @@ export default function TopBar({
           >
             <MenuIcon />
           </button>
-          <div className="h-9 w-9 rounded-lg border border-slate-200 bg-white p-2 dark:border-slate-700 dark:bg-slate-900">
-            <div className="h-full w-full rounded-md bg-gradient-to-br from-[#1A73E8] via-sky-500 to-sky-300" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">
+            <GitHubMarkIcon />
           </div>
           <span className="text-lg font-semibold text-slate-900 dark:text-slate-100">
             {title}
@@ -244,6 +244,19 @@ function MoonIcon() {
       aria-hidden="true"
     >
       <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 109.8 9.8z" />
+    </svg>
+  );
+}
+
+function GitHubMarkIcon() {
+  return (
+    <svg
+      className="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 2a10 10 0 00-3.16 19.48c.5.1.68-.22.68-.48v-1.7c-2.77.6-3.35-1.17-3.35-1.17-.46-1.17-1.12-1.48-1.12-1.48-.9-.62.07-.6.07-.6 1 .07 1.53 1.04 1.53 1.04.9 1.53 2.36 1.08 2.94.83.1-.65.35-1.08.63-1.33-2.22-.25-4.56-1.1-4.56-4.9 0-1.08.4-1.97 1.04-2.66-.1-.25-.45-1.27.1-2.64 0 0 .85-.27 2.8 1.02a9.6 9.6 0 015.1 0c1.95-1.29 2.8-1.02 2.8-1.02.55 1.37.2 2.39.1 2.64.65.7 1.04 1.58 1.04 2.66 0 3.8-2.35 4.65-4.6 4.9.36.31.68.9.68 1.83v2.7c0 .26.18.58.68.48A10 10 0 0012 2z" />
     </svg>
   );
 }

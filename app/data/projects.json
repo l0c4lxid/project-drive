@@ -8,6 +8,7 @@
     "demoUrl": "https://ayam-geprek-profile.vercel.app/",
     "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
     "type": "UI/UX",
+    "tags": ["UI/UX", "Web"],
     "year": 2025
   },
   {
@@ -19,6 +20,7 @@
     "demoUrl": "https://tk-pkk-siwi-lestari.vercel.app/",
     "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
     "type": "UI/UX",
+    "tags": ["UI/UX", "Web"],
     "year": 2025
   },
   {
@@ -30,6 +32,7 @@
     "demoUrl": "https://awul-awul-market.vercel.app/",
     "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
     "type": "UI/UX",
+    "tags": ["UI/UX", "Web"],
     "year": 2025
   },
   {
@@ -41,6 +44,7 @@
     "demoUrl": "https://desain-interior-template.vercel.app/",
     "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
     "type": "UI/UX",
+    "tags": ["UI/UX", "Web"],
     "year": 2025
   }
 ]

@@ -13,6 +13,7 @@ export default function ProjectCard({
   isSelected,
 }: ProjectCardProps) {
   const useUnoptimized = project.thumbnailImage.includes("image.thum.io");
+  const tags = project.tags?.length ? project.tags : [project.type];
 
   return (
     <div className="group relative">
@@ -40,6 +41,16 @@ export default function ProjectCard({
             <p className="truncate text-sm font-medium text-slate-900 dark:text-slate-100">
               {project.title}
             </p>
+            <div className="mt-1 flex flex-wrap gap-1">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </button>
