@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import type { ProjectType } from "../data/projects";
 
@@ -34,14 +33,11 @@ export default function TopBar({
   filters,
   onMenuClick,
 }: TopBarProps) {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const isDark = mounted && theme === "dark";
+  const { theme, resolvedTheme, setTheme } = useTheme();
+  const isClientMounted = resolvedTheme !== undefined;
+  const isDark =
+    isClientMounted &&
+    (theme === "dark" || (theme === "system" && resolvedTheme === "dark"));
 
   return (
     <div className="sticky top-0 z-30 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/90">

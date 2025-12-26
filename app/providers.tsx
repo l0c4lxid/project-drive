@@ -13,6 +13,7 @@ export default function Providers({ children }: ProvidersProps) {
       attribute="class"
       defaultTheme="light"
       enableSystem={false}
+      storageKey="project-drive-theme"
       disableTransitionOnChange
     >
       {children}
