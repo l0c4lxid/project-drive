@@ -9,8 +9,19 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Project Drive",
-  description: "A Google Drive-inspired workspace for project portfolios.",
+  title: "Project Drive | Syaid Andhika",
+  description: "Project Drive portfolio dashboard by Syaid Andhika.",
+  metadataBase: new URL("https://project-drive.vercel.app"),
+  openGraph: {
+    title: "Project Drive | Syaid Andhika",
+    description: "Project Drive portfolio dashboard by Syaid Andhika.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Project Drive | Syaid Andhika",
+    description: "Project Drive portfolio dashboard by Syaid Andhika.",
+  },
   icons: {
     icon: "/icon.svg",
   },
