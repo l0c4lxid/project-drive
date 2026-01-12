@@ -8,10 +8,16 @@ const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://project-drive.vercel.app";
+
 export const metadata: Metadata = {
   title: "Project Drive | Syaid Andhika",
   description: "Project Drive portfolio dashboard by Syaid Andhika.",
-  metadataBase: new URL("https://project-drive.vercel.app"),
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Project Drive | Syaid Andhika",
     description: "Project Drive portfolio dashboard by Syaid Andhika.",
